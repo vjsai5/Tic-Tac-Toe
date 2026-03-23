@@ -13,7 +13,6 @@ A modern, animated Tic Tac Toe game built with Python using Tkinter.
 * 👥 2 Player Mode
 * 📊 Scoreboard tracking
 * ⚡ Smooth animations
-* 🔁 Restart & Reset options
 
 ## 🧠 AI Logic
 
