@@ -9,21 +9,21 @@ class AdvancedTicTacToe:
         self.root.configure(bg="#0f172a")
         self.root.resizable(False, False)
 
-        # Game state
+        
         self.board = [["" for _ in range(3)] for _ in range(3)]
         self.current = "X"
         self.game_over = False
 
-        # Modes
+        
         self.vs_ai = True
         self.difficulty = "Hard"
 
-        # Scoreboard
+        
         self.score_x = 0
         self.score_o = 0
         self.score_draw = 0
 
-        # Colors
+        
         self.bg = "#0f172a"
         self.card = "#1e293b"
         self.btn = "#334155"
@@ -31,13 +31,13 @@ class AdvancedTicTacToe:
         self.accent = "#22c55e"
         self.win = "#facc15"
 
-        # TITLE
+        
         self.title = tk.Label(root, text="Vijay's Tic Tac Toe",
                               font=("Segoe UI", 22, "bold"),
                               bg=self.bg, fg="white")
         self.title.pack(pady=10)
 
-        # SCOREBOARD
+        
         score_frame = tk.Frame(root, bg=self.bg)
         score_frame.pack()
 
@@ -50,7 +50,7 @@ class AdvancedTicTacToe:
         )
         self.score_label.pack()
 
-        # CONTROLS
+        
         control = tk.Frame(root, bg=self.bg)
         control.pack(pady=5)
 
@@ -64,11 +64,11 @@ class AdvancedTicTacToe:
                                  bg=self.accent, fg="black")
         self.diff_btn.grid(row=0, column=1, padx=5)
 
-        # CARD
+        
         self.card_frame = tk.Frame(root, bg=self.card)
         self.card_frame.pack(padx=20, pady=10, fill="both", expand=True)
 
-        # BOARD
+       
         self.board_frame = tk.Frame(self.card_frame, bg=self.card)
         self.board_frame.pack(pady=20)
 
@@ -91,14 +91,14 @@ class AdvancedTicTacToe:
 
                 self.buttons[i][j] = btn
 
-        # STATUS
+        
         self.status = tk.Label(self.card_frame,
                                text="Turn: X",
                                font=("Segoe UI", 14),
                                bg=self.card, fg="#cbd5f5")
         self.status.pack(pady=10)
 
-        # BUTTONS
+        
         btn_frame = tk.Frame(root, bg=self.bg)
         btn_frame.pack(pady=10)
 
@@ -114,7 +114,7 @@ class AdvancedTicTacToe:
                   bg="#f97316", fg="white",
                   command=self.reset_all).grid(row=0, column=2, padx=5)
 
-    # GAME
+    
     def play(self, r, c):
         if self.game_over or self.board[r][c] != "":
             return
@@ -138,7 +138,7 @@ class AdvancedTicTacToe:
         self.current = "O" if self.current == "X" else "X"
         self.status.config(text=f"Turn: {self.current}")
 
-    # AI
+    
     def ai_move(self):
         if self.difficulty == "Easy":
             move = self.random_move()
@@ -197,7 +197,7 @@ class AdvancedTicTacToe:
                         self.board[i][j] = ""
             return best
 
-    # LOGIC
+    
     def get_winner(self):
         b = self.board
         for i in range(3):
@@ -229,7 +229,7 @@ class AdvancedTicTacToe:
 
         return False
 
-    # SCORE
+    
     def update_score(self, winner):
         if winner == "X":
             self.score_x += 1
@@ -250,7 +250,7 @@ class AdvancedTicTacToe:
         self.reset_score()
         self.restart()
 
-    # ANIMATIONS
+    
     def animate_click(self, r, c):
         self.buttons[r][c].config(bg=self.accent)
         self.root.after(120, lambda: self.buttons[r][c].config(bg=self.btn))
@@ -271,7 +271,7 @@ class AdvancedTicTacToe:
             for j in range(3):
                 self.buttons[i][j].config(bg=self.btn)
 
-    # CONTROLS
+    
     def toggle_mode(self):
         self.vs_ai = not self.vs_ai
         self.mode_btn.config(text="Mode: AI" if self.vs_ai else "Mode: 2 Player")
@@ -294,7 +294,7 @@ class AdvancedTicTacToe:
                 self.buttons[i][j].config(text="", bg=self.btn)
 
 
-# RUN
+
 root = tk.Tk()
 app = AdvancedTicTacToe(root)
 root.mainloop()
